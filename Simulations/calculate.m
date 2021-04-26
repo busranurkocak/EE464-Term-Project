@@ -6,8 +6,9 @@ D_w = 0.1; %Dwell time duty ratio
 V_in_max = 400;
 V_in_min = 220; %V
 V_out = 12;
+P_out_load = 100;
 V_d = 1;
-C_out = 10e-6; % output capacitance
+C_out = 470e-6; % output capacitance
 C_out_ESR = 15e-3 ; % capacitor ESR resistance
 n = 0.9; % efficiency
 Ku = 0.29; % Window Utilization
@@ -47,8 +48,8 @@ T = 1/f;
 %Step 2: Calculate the maximum transistor on time, t_on
 t_on_max = T*D_max;
 %Step 3-4-5: Calculate the total secondary load power
-P_out = 100; %W
-I_out = P_out/(V_out);
+I_out = P_out_load/(V_out);
+P_out = P_out_load + V_d*I_out ;
 %Step 6: Calculate the maximum input current
 I_in_max = (P_out)/(V_in_min*n);
 %Step 7: Calculate the primary peak current
@@ -101,11 +102,11 @@ R_p = MLT*N_np*R_pcm*(10^(-6));
 %Step 27: Calculate the primary copper loss, P_p
 P_p = (I_p_rms^2)*R_p;
 %Step 28: Calculate the secondary turns, N_s1
-N_s = round((N_np*(V_out-V_d)*(1-D_max*D_w))/(V_in_min*D_max));
+N_s = round((N_np*(V_out-V_d)*(1-D_max-D_w))/(V_in_min*D_max));
 %Step 29: Calculate the secondary peak current, I_s1_peak
 I_s_peak = (2*I_out)/(1-D_max-D_w);
 %Step 30: Calculate the secondary rms current
-I_s_rms = (I_s_peak)*sqrt((1-D_max*D_w)/3);
+I_s_rms = (I_s_peak)*sqrt((1-D_max-D_w)/3);
 %Step 31: Calculate the secondary wire area, A_sw1
 A_sw = I_s_rms/J; %cm^2
 %Step 32: Calculate the required number of secondary strands, S_ns1
@@ -146,8 +147,7 @@ P_total_loss = P_fe+P_cu;
 
 %% Component Calculations
 
-N_turn_ratio = (D_max/(1-D_max-D_w))*(V_in_min / V_out);
-
+N_turn_ratio = N_np/ N_s;
 % Mosfet
 Mos_max_voltage = V_in_max + N_turn_ratio*V_out;
 Mos_max_current = I_p_peak;
