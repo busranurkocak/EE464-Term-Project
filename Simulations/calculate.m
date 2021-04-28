@@ -62,9 +62,9 @@ P_in = P_out/n;
 %Step 10: Calculate the equivalent input resistance
 R_in_eq = (V_in_min^2)/(P_in);
 %Step 11: Calculate the required primary inductance
-L_m = (R_in_eq*T*(D_max^2))/2;
+L_p = (R_in_eq*T*(D_max^2))/2;
 %Step 12: Calculate the energy-handling capability in watt-seconds
-Energy = (L_m*(I_p_peak^2))/2;
+Energy = (L_p*(I_p_peak^2))/2;
 %Step 13: Calculate the electrical conditions
 Ke = 0.145*P_out*(B_max^2)*(10^(-4));
 %Step 14: Calculate the core geometry. See the design specification, 
@@ -85,14 +85,14 @@ S_np = ceil(A_pw/Aw_26);
 W_ap = Wa/2;
 N_p = ceil((Ku*W_ap)/(3*Aw_26));
 %Step 20: Calculate the required gap
-lg = ((0.4*pi*(N_p^2)*Ac*(10^(-8)))/L_m)-((MPL)/(mu_m));
+lg = ((0.4*pi*(N_p^2)*Ac*(10^(-8)))/L_p)-((MPL)/(mu_m));
 %Step 21: Calculate the equivalent gap in mils
 mils = lg*393.7;
 %Step 22: Calculate the fringing flux factor
 F = 1+((lg/(sqrt(Ac)))*(log((2*G)/lg)));
 %Step 23: Calculate the new number of turns, N_np, by inserting the
 %fringing flux, F
-N_np = ceil(sqrt((lg*L_m)/(0.4*pi*Ac*F*(10^(-8)))));
+N_np = ceil(sqrt((lg*L_p)/(0.4*pi*Ac*F*(10^(-8)))));
 %Step 24: Calculate the peak flux density, B_pk
 B_pk = (0.4*pi*N_np*F*I_p_peak*(10^(-4)))/(lg+(MPL/mu_m));
 %Step 25: Calculate the primary resistance per cm
@@ -141,6 +141,8 @@ P_total_loss = P_fe+P_cu;
 %Step 52: Calculate the temperature rise, Tr
 %Tr = 450*(Watt_density^(0.826));
 
+%Secondary inductance
+L_s = L_p*((N_s/N_np)^2);
 
 
 
@@ -163,3 +165,29 @@ Vc_ideal = (D_max*(P_out /V_out)*T)/C_out;  % Ripple due to capacitance
 V_out_pp = Vesr + Vc_ideal;                 % Real ripple value
 
 Output_Voltage_ripple_ratio = (V_out_pp / V_out)*100 ;
+
+%% LT3816 specific components' calculations
+
+D_Vin_min = ((V_out+V_d)*N_turn_ratio)/(((V_out+V_d)*N_turn_ratio)+V_in_min);
+
+%The amplitude of the flyback pulse
+V_flbk = (V_out+V_d)*N_turn_ratio;
+
+%Feedback resistors' ratio
+R_FB_ratio = (V_flbk/1.22)-1;
+
+%R_FB1 recommended to be in between 1-10 kOhm
+R_FB1 = 2e3;
+
+%Selecting the R_FB2 Resistor Value
+R_FB2 = R_FB_ratio*R_FB1;
+
+%R_FB2 regulation with the measured V_out value
+%V_out_meas = ?
+%R_FB2_final = ((R_FB2+R_FB1)*(V_out/V_out_meas))-R_FB1;
+
+%Sense Resistor Selection
+R_sns = ((1-D_Vin_min)/I_out)*(50e-3)*N_turn_ratio*n;
+
+
+
