@@ -1,3 +1,4 @@
+
 %% Parameters
 
 f = 100e3;
@@ -49,8 +50,8 @@ T = 1/f;
 %Step 2: Calculate the maximum transistor on time, t_on
 t_on_max = T*D_max;
 %Step 3-4-5: Calculate the total secondary load power
-P_out = 100; %W
-I_out = P_out/(V_out);
+I_out = P_out_load/(V_out);
+P_out = P_out_load + V_d*I_out ;
 %Step 6: Calculate the maximum input current
 I_in_max = (P_out)/(V_in_min*n);
 %Step 7: Calculate the primary peak current
@@ -104,11 +105,11 @@ R_p = MLT*N_np*R_pcm*(10^(-6));
 %Step 27: Calculate the primary copper loss, P_p
 P_p = (I_p_rms^2)*R_p;
 %Step 28: Calculate the secondary turns, N_s1
-N_s = round((N_np*(V_out-V_d)*(1-D_max*D_w))/(V_in_min*D_max));
+N_s = round((N_np*(V_out-V_d)*(1-D_max-D_w))/(V_in_min*D_max));
 %Step 29: Calculate the secondary peak current, I_s1_peak
 I_s_peak = (2*I_out)/(1-D_max-D_w);
 %Step 30: Calculate the secondary rms current
-I_s_rms = (I_s_peak)*sqrt((1-D_max*D_w)/3);
+I_s_rms = (I_s_peak)*sqrt((1-D_max-D_w)/3);
 %Step 31: Calculate the secondary wire area, A_sw1
 A_sw = I_s_rms/J; %cm^2
 %Step 32: Calculate the required number of secondary strands, S_ns1
