@@ -1,31 +1,37 @@
+%% Parameters
+
 f = 100e3;
-D_max = 0.5;
+D_max = 0.2;
 D_w = 0.1; %Dwell time duty ratio
+V_in_max = 400;
 V_in_min = 220; %V
 V_out = 12;
+P_out_load = 100;
 V_d = 1;
+C_out = 470e-6; % output capacitance
+C_out_ESR = 15e-3 ; % capacitor ESR resistance
 n = 0.9; % efficiency
 Ku = 0.29; % Window Utilization
+B_m = 0.25; % Operating flux density
 Aw_26 = 0.00128; %Bare area of AWG26
 Wa = 2*8.6*(21.9-9.4)*(10^(-2));
-alfa = 3; %Regulation
+alfa = 1; %Regulation
+AL = 1696e-9; %nH/T^2
 
 
+%%
 %Material specifications considering 3C90 as selected material type
 B_max = 0.25;
-mu_m = 2300;
-MPL = 6.19; %cm, effective length or Magnetic path lenght
-W_tfe = 13*2; %gr, Core Weight, (2*mass of core half)
-%W_tcu = ?; %gr, Copper Weight
-Ac = 0.832; %cm^2, Iron Area
-Ap = 0.59; %cm^4 for 0_43009EC Ferrite Core, Area Product
-Window_Area = Ap/Ac; %cm'2, Window Area
-G = 3.76; %cm, Winding Length
-MLT= 5.01; %cm, Mean length turn
-
-
-
-
+W_tcu = 47.3; %gr, Copper Weight
+W_tfe = 57; %gr, Core Weight, (2*mass of core half)
+MLT= 8.1; %cm, Mean length turn
+MPL = 7.75; %cm, effective length or Magnetic path lenght
+Ac = 1.49; %cm^2, Iron Area
+Window_Area = 1.643; %cm'2, Window Area
+WaAc = Window_Area*Ac; %cm^4 Area Product
+At = 60.9; %cm^2, Surface Area
+G = 2.860; %cm, Winding Length
+mu_m = 2500; % Core permeability
 
 
 %Skin depth in centimeters
@@ -69,7 +75,7 @@ Kg = (Energy^2)/(Ke*alfa);
 
 %Step 16: Calculate the current density, J, using a window utilization, 
     % Ku is the amount of copper that appears in the window area of the
-J = (2*Energy*(10^4))/(B_max*Ap*Ku);
+J = (2*Energy*(10^4))/(B_max*WaAc*Ku);
 %Step 17: Calculate the primary wire area
 A_pw = I_p_rms/J;
 %Step 18: Calculate the required number of primart strands
@@ -77,8 +83,9 @@ A_pw = I_p_rms/J;
 S_np = ceil(A_pw/Aw_26);
 %Step 19: Calculate the number of primary turns, Np. Half of the available
 %window is primary. Using the number of strands, S_np, and the area of #26
-W_ap = Wa/2;
-N_p = ceil((Ku*W_ap)/(3*Aw_26));
+    %W_ap = Wa/2;
+    %N_p = ceil((Ku*W_ap)/(3*Aw_26));
+    N_p = sqrt(L_m/AL);
 %Step 20: Calculate the required gap
 lg = ((0.4*pi*(N_p^2)*Ac*(10^(-8)))/L_m)-((MPL)/(mu_m));
 %Step 21: Calculate the equivalent gap in mils
