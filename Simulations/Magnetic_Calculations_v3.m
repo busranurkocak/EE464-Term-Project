@@ -139,10 +139,9 @@ P_fe = WK*W_tfe*(10^(-3));
 %Step 50: Calculate the total loss, P_total_loss
 P_total_loss = P_fe+P_cu;
 %Step 51: Calculate the watt density
-    %At : Surface Area
-%Watt_density = P_total_loss/At;
+Watt_density = P_total_loss/At;
 %Step 52: Calculate the temperature rise, Tr
-%Tr = 450*(Watt_density^(0.826));
+Tr = 450*(Watt_density^(0.826));
 
 
 
