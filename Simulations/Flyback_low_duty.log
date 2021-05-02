@@ -1,0 +1,98 @@
+Circuit: * C:\Users\defne\OneDrive\Masaüstü\2020 SPRING\464\EE464-Term-Project\Simulations\Flyback_low_duty.asc
+
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+Gmin = 0.000142725
+Gmin = 1.5325e-005
+Gmin = 1.6455e-006
+Gmin = 1.76685e-007
+vernier = 0.5
+vernier = 0.25
+Gmin = 8.87285e-008
+vernier = 0.333333
+vernier = 0.444444
+Gmin = 3.76608e-008
+vernier = 0.592592
+vernier = 0.790123
+Gmin = 1.00079e-008
+vernier = 1
+Gmin = 1.33156e-009
+Gmin = 1.42975e-010
+Gmin = 1.53518e-011
+Gmin = 1.64839e-012
+Gmin = 1.76994e-013
+Gmin = 0
+Gmin stepping succeeded in finding the operating point.
+
+Ignoring empty pin current: Ix(endoscreset:in)
+Ignoring empty pin current: Ix(endoscreset:out)
+Ignoring empty pin current: Ix(endleb:in)
+Ignoring empty pin current: Ix(endleb:out)
+Ignoring empty pin current: Ix(maxontime:in)
+Ignoring empty pin current: Ix(maxontime:out)
+Ignoring empty pin current: Ix(dprimeest:in)
+Ignoring empty pin current: Ix(dprimeest:out)
+Ignoring empty pin current: Ix(enddcmblank:in)
+Ignoring empty pin current: Ix(enddcmblank:out)
+Ignoring empty pin current: Ix(endsample:in)
+Ignoring empty pin current: Ix(endsample:out)
+Ignoring empty pin current: Ix(backuposc:in)
+Ignoring empty pin current: Ix(backuposc:out)
+Ignoring empty pin current: Ix(endreset:in)
+Ignoring empty pin current: Ix(endreset:out)
+Ignoring empty pin current: Ix(sleep:in)
+Ignoring empty pin current: Ix(sleep:out)
+Ignoring empty pin current: Ix(u1:2)
+Ignoring empty pin current: Ix(u1:3)
+Ignoring empty pin current: Ix(u1:4)
+Ignoring empty pin current: Ix(u1:5)
+Ignoring empty pin current: Ix(u1:6)
+Ignoring empty pin current: Ix(u1:7)
+Ignoring empty pin current: Ix(endoscreset:in)
+Ignoring empty pin current: Ix(endoscreset:out)
+Ignoring empty pin current: Ix(endleb:in)
+Ignoring empty pin current: Ix(endleb:out)
+Ignoring empty pin current: Ix(maxontime:in)
+Ignoring empty pin current: Ix(maxontime:out)
+Ignoring empty pin current: Ix(dprimeest:in)
+Ignoring empty pin current: Ix(dprimeest:out)
+Ignoring empty pin current: Ix(enddcmblank:in)
+Ignoring empty pin current: Ix(enddcmblank:out)
+Ignoring empty pin current: Ix(endsample:in)
+Ignoring empty pin current: Ix(endsample:out)
+Ignoring empty pin current: Ix(backuposc:in)
+Ignoring empty pin current: Ix(backuposc:out)
+Ignoring empty pin current: Ix(endreset:in)
+Ignoring empty pin current: Ix(endreset:out)
+Ignoring empty pin current: Ix(sleep:in)
+Ignoring empty pin current: Ix(sleep:out)
+Ignoring empty pin current: Ix(u1:2)
+Ignoring empty pin current: Ix(u1:3)
+Ignoring empty pin current: Ix(u1:4)
+Ignoring empty pin current: Ix(u1:5)
+Ignoring empty pin current: Ix(u1:6)
+Ignoring empty pin current: Ix(u1:7)
+
+Date: Sun May 02 13:03:07 2021
+Total elapsed time: 858.423 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 38237827
+traniter = 38236999
+tranpoints = 10078979
+accept = 7629946
+rejected = 2449033
+matrix size = 59
+fillins = 31
+solver = Normal
+Thread vector: 13.3/8.9[2] 9.1/3.6[2] 3.4/2.5[2] 0.2/1.6[1]  2592/500
+Matrix Compiler1: 3.98 KB object code size  2.3/1.5/[0.8]
+Matrix Compiler2: 4.67 KB object code size  1.2/2.0/[0.4]
+
