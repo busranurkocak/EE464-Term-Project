@@ -5,6 +5,7 @@ f = 100; %kHz, Switching Frequency
 Vout = 12; %V, Output Voltage
 n_eff = 0.9; %Efficiency
 Pin = Pout/n_eff;
+SkinD = 0.066/(sqrt(f*1000));
 
 Ipk = (2*Pout)/(Vin_min*Dmax); %A, Peak Current
 Lpri = ((Vin_min)*Dmax)/(Ipk*f); %mH, Primary Inductance
@@ -20,7 +21,7 @@ Iave = Pin/Vin_min; % Average input current
 Isec = Iave*(Npri/Nsec);
 
 % Cable Selection -> AWG 26
-% D = 0.40386e-3; %m
+Diameter = 0.40386e-3; %m
 R = 0.1338568; %Ohms/m
 Imax = 0.361; %A, maximum current cable can carry
 
@@ -45,7 +46,7 @@ Awindow = ((E-F)/2)*(2*D); %m^2
 Acopper = 0.129e-6; %m^2
 Kcu = (Acopper*((Spri*Npri)+(Ssec*Nsec)))/(83.3e-6);
 
-Bac = (235*1e4)/(2*pi*f*(1e3)*Npri*Ae);
+Bac = (235*1e4)/(4*pi*f*(1e3)*Npri*Ae);
 Bpk = (Lpri*Ipk)/(Npri*Ae);
 
 %Core Loss
@@ -63,6 +64,16 @@ Rpri = (Npri*MLT*R)/(Spri);
 Rsec = (Nsec*MLT*R)/(Ssec);
 Pcu = ((Iave^2)*Rpri)+((Isec^2)*Rsec);
 
+%AC Copper Loss
+Rac1 = ((Diameter/2)/SkinD)*Rpri;
+Rac2 = ((Diameter/2)/SkinD)*Rsec;
+Pcu_AC = ((Iave^2)*Rac1)+((Isec^2)*Rac2);
 
+%Total Copper Loss
+Pcu_total = Pcu + Pcu_AC;
 
+%Total Loss
+Ptotal = Pcu_total + Pfe;
 
+%Temperature Rise
+Temp_Rise = ((Ptotal*1000)/Ae)^(0.833);
