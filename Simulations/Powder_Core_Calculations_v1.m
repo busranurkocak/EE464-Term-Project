@@ -44,7 +44,7 @@ D = 9.6e-3;
 Awindow = ((E-F)/2)*(2*D); %m^2
 
 Acopper = 0.129e-6; %m^2
-Kcu = (Acopper*((Spri*Npri)+(Ssec*Nsec)))/(83.3e-6);
+Kcu = (Acopper*((Spri*Npri)+(Ssec*Nsec)+Nsec))/(83.3e-6);
 
 Bac = (235*1e4)/(4*pi*f*(1e3)*Npri*Ae);
 Bpk = (Lpri*Ipk)/(Npri*Ae);
