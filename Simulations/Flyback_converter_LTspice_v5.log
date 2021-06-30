@@ -1,0 +1,75 @@
+Circuit: * C:\Users\musta\Documents\LTspiceXVII\Flyback_converter_LTspice_v5.asc
+
+R11: both pins shorted together -- ignoring.
+Instance "m:u2:r": Length shorter than recommended for a level 1 MOSFET.
+Instance "m:u2:r": Width narrower than recommended for a level 1 MOSFET.
+Instance "m:u2:1": Width narrower than recommended for a level 3 MOSFET.
+Direct Newton iteration for .op point succeeded.
+Ignoring empty pin current: Ix(endoscreset:in)
+Ignoring empty pin current: Ix(endoscreset:out)
+Ignoring empty pin current: Ix(endleb:in)
+Ignoring empty pin current: Ix(endleb:out)
+Ignoring empty pin current: Ix(maxontime:in)
+Ignoring empty pin current: Ix(maxontime:out)
+Ignoring empty pin current: Ix(dprimeest:in)
+Ignoring empty pin current: Ix(dprimeest:out)
+Ignoring empty pin current: Ix(enddcmblank:in)
+Ignoring empty pin current: Ix(enddcmblank:out)
+Ignoring empty pin current: Ix(endsample:in)
+Ignoring empty pin current: Ix(endsample:out)
+Ignoring empty pin current: Ix(backuposc:in)
+Ignoring empty pin current: Ix(backuposc:out)
+Ignoring empty pin current: Ix(endreset:in)
+Ignoring empty pin current: Ix(endreset:out)
+Ignoring empty pin current: Ix(sleep:in)
+Ignoring empty pin current: Ix(sleep:out)
+Ignoring empty pin current: Ix(u1:2)
+Ignoring empty pin current: Ix(u1:3)
+Ignoring empty pin current: Ix(u1:4)
+Ignoring empty pin current: Ix(u1:5)
+Ignoring empty pin current: Ix(u1:6)
+Ignoring empty pin current: Ix(u1:7)
+Ignoring empty pin current: Ix(endoscreset:in)
+Ignoring empty pin current: Ix(endoscreset:out)
+Ignoring empty pin current: Ix(endleb:in)
+Ignoring empty pin current: Ix(endleb:out)
+Ignoring empty pin current: Ix(maxontime:in)
+Ignoring empty pin current: Ix(maxontime:out)
+Ignoring empty pin current: Ix(dprimeest:in)
+Ignoring empty pin current: Ix(dprimeest:out)
+Ignoring empty pin current: Ix(enddcmblank:in)
+Ignoring empty pin current: Ix(enddcmblank:out)
+Ignoring empty pin current: Ix(endsample:in)
+Ignoring empty pin current: Ix(endsample:out)
+Ignoring empty pin current: Ix(backuposc:in)
+Ignoring empty pin current: Ix(backuposc:out)
+Ignoring empty pin current: Ix(endreset:in)
+Ignoring empty pin current: Ix(endreset:out)
+Ignoring empty pin current: Ix(sleep:in)
+Ignoring empty pin current: Ix(sleep:out)
+Ignoring empty pin current: Ix(u1:2)
+Ignoring empty pin current: Ix(u1:3)
+Ignoring empty pin current: Ix(u1:4)
+Ignoring empty pin current: Ix(u1:5)
+Ignoring empty pin current: Ix(u1:6)
+Ignoring empty pin current: Ix(u1:7)
+Heightened Def Con from 0.141917 to 0.141917
+
+Date: Wed Jun 30 21:37:55 2021
+Total elapsed time: 99.520 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 3163198
+traniter = 3163153
+tranpoints = 791239
+accept = 578284
+rejected = 212956
+matrix size = 68
+fillins = 38
+solver = Normal
+Thread vector: 25.9/14.0[3] 9.8/6.0[3] 5.2/4.0[3] 0.4/1.9[1]  2592/500
+Matrix Compiler1: 5.22 KB object code size  2.4/1.8/[0.8]
+Matrix Compiler2: 5.66 KB object code size  1.2/2.0/[0.4]
+
