@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=R4 Old Footprint=R4 R0805 0.1 1W wide-chip New Footprint=R4 R0603 32mohm sense
+Change Physical Footprint: Designator=D1 Old Footprint=D1 40A 860 mv TO220-2 New Footprint=D1 40A 860 mv TO220-2
+Change Physical Footprint: Designator=D2 Old Footprint=D2 1A 470mV SOD323-2 New Footprint=D2 1A 470mV SOD323-2
+Change Physical Footprint: Designator=L? Old Footprint=Transformer New Footprint=Transformer
