@@ -1,0 +1,3 @@
+Change Component Comment : Designator=4.7uF Old Comment=Capacitor New Comment=4.7uF
+Change Component Designator: OldDesignator=4.7uF NewDesignator=C8
+Change Net Name : Old Net Name=Net4.7uF_1 New Net Name=NetC8_1

@@ -125,6 +125,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VWXJNNHA
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for 464HardwareProject\Design Rule Check - 464HardwareProject.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
@@ -1119,7 +1123,7 @@ ModelType1=PCBLIB
 ModelName1=C1 C0402 47pF
 ModelUpdate1=1
 ModelType2=PCBLIB
-ModelName2=C2 Output Cap 680uF 16V
+ModelName2=C2 Output Cap 330uF 16V 13mohm
 ModelUpdate2=1
 ModelType3=PCBLIB
 ModelName3=C3 C0402 47pF 100V

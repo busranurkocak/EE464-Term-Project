@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=NetD1_1 Pin=L1-3
+Removed Pin From Net: NetName=ISOGND Pin=L1-4
+Added Pin To Net: NetName=Net46.02K_1 Pin=L1-3
+Added Pin To Net: NetName=GND Pin=L1-4
+Added Pin To Net: NetName=NetD1_1 Pin=L1-5
+Added Pin To Net: NetName=ISOGND Pin=L1-6
+Change Net Name : Old Net Name=Drain New Net Name=NetD3_1
+Change Net Name : Old Net Name=Net46.02K_1 New Net Name=Control
+Change Net Name : Old Net Name=NetC2_1 New Net Name=Output
